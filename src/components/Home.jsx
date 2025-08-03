@@ -51,17 +51,17 @@ const Home = () => {
   }
 
   return (
-  <div className=''>
+  <div className='dark:text-white text-black'>
       <div className='flex flex-row xl:gap-7 place-content-between'>
       <input 
-        className='p-2 rounded-2xl mt-2 lg:w-[56%] bg-black'
+        className='p-2 rounded-2xl mt-2 lg:w-[56%] dark:bg-black bg-white border-1 dark:border-white'
         type="text"
         placeholder='Enter title here'
         value={title}
         onChange={(e) => setTitle(e.target.value)}
        />
 
-       <button onClick={createPaste} className='p-1 rounded-2xl mt-2 ml-2 sm:mx-[12px] sm:text-12'>
+       <button onClick={createPaste} className='dark:bg-zinc-900 bg-gray-200 p-1 rounded-2xl mt-2 ml-2 sm:mx-[12px] sm:text-12'>
         {
           pasteId ? "update Paste" : "Create Paste"
         }
@@ -69,9 +69,9 @@ const Home = () => {
     </div>
     <div className='mt-5'>
       <textarea 
-        className='rounded-2xl mt-4 lg:w-[500px] sm:w-[100%] p-4 bg-black'
+        className='rounded-2xl mt-4 lg:w-[500px] sm:w-[100%] p-4 dark:bg-black bg-white border-1 dark:border-white'
         value={value}
-        placeholder='enter content here'
+        placeholder='Enter content here'
         onChange={(e) => setValue(e.target.value)}
         rows={10}
       />

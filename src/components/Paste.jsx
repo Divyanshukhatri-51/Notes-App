@@ -20,7 +20,7 @@ const Paste = () => {
   return (
     <div className='sm:m-0'>
       <input 
-      className='p-2 rounded-2xl md:min-w-[600px] sm:w-[300px] bg-black mt-5'
+      className='p-2 rounded-2xl md:min-w-[600px] sm:w-[300px] mt-5 dark:bg-black bg-white border-1 border-black dark:border-white'
       type="search"
       placeholder='Search here'
       value={searchTerm}
@@ -30,9 +30,9 @@ const Paste = () => {
         {
           filteredData.length > 0 && filteredData.map((paste) => {
             return (
-            <div className='border-2 bg-black mt-3 rounded-2xl'>
+            <div className='border-1 border-black dark:bg-black dark:border-white bg-white mt-3 rounded-2xl'>
               <div>
-                {paste.title}
+                <h1>{paste.title}</h1>
               </div>
               <div>
                 {paste.content}
