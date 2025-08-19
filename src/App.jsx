@@ -3,7 +3,7 @@ import './App.css'
 import Navbar from './components/Navbar'
 import Home from './components/Home'
 import ViewPaste from './components/ViewPaste'
-import Paste from './components/paste'
+import Paste from './components/Paste'
 import { useState, useEffect } from 'react'
 import { BsMoonStarsFill } from "react-icons/bs";
 import { MdWbSunny } from "react-icons/md";
@@ -56,7 +56,7 @@ function App() {
 
   return (
     <div className='static'>
-      <div className='flex w-24 mb-2 absolute right-4 p-3 bg-black rounded-2xl justify-between dark:bg-zinc-900 bg-gray-200'>
+      <div className='flex w-24 mb-2 absolute right-4 p-3 rounded-2xl justify-between dark:bg-zinc-900 bg-gray-200'>
         {/* <input type="checkbox" className='relative rounded-full' id="" /> */}
         <BsMoonStarsFill onClick={manageTheme}/>
         <MdWbSunny onClick={manageTheme}/>
