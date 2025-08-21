@@ -56,7 +56,7 @@ function App() {
 
   return (
     <div className='static'>
-      <div className='flex w-24 mb-2 absolute right-4 p-3 rounded-2xl justify-between dark:bg-zinc-900 bg-gray-200'>
+      <div className='flex w-10 mb-2 absolute right-4 p-3 rounded-full justify-between dark:bg-zinc-900 bg-gray-200'>
         {
          theme == "dark" ? 
           <MdWbSunny onClick={manageTheme}/>
