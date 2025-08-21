@@ -54,7 +54,7 @@ const Home = () => {
   <div className='dark:text-white text-black'>
       <div className='flex flex-row xl:gap-7 place-content-between'>
       <input 
-        className='p-2 rounded-2xl mt-2 lg:w-[56%] dark:bg-black bg-white border-1 dark:border-white'
+        className='p-2 rounded-2xl mt-2 lg:w-[76%] dark:bg-black bg-white border-1 dark:border-white'
         type="text"
         placeholder='Enter title here'
         value={title}
@@ -69,11 +69,11 @@ const Home = () => {
     </div>
     <div className='mt-5'>
       <textarea 
-        className='rounded-2xl mt-4 lg:w-[500px] sm:w-[100%] p-4 dark:bg-black bg-white border-1 dark:border-white'
+        className='rounded-2xl mt-4 lg:w-[800px] sm:w-[100%] p-4 dark:bg-black bg-white border-1 dark:border-white'
         value={value}
         placeholder='Enter content here'
         onChange={(e) => setValue(e.target.value)}
-        rows={10}
+        rows={15}
       />
     </div>
   </div>
