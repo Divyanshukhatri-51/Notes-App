@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useSearchParams } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux"
 import { addToPaste, updateToPaste } from '../redux/pasteSlice';
-import toast from 'react-hot-toast';
+import toast, { Toaster } from 'react-hot-toast';
 
 const Home = () => {
   const [title,setTitle] = useState('');
@@ -36,7 +36,7 @@ const Home = () => {
     else {
       //create
       if(paste.content == "" || paste.title == ""){
-        toast.error("Title OR Content is missing")
+        toast.error("Title OR Content is missing", {position: 'top-left'})
       }
       else {
         dispatch(addToPaste(paste));
@@ -54,7 +54,7 @@ const Home = () => {
   <div className='dark:text-white text-black'>
       <div className='flex flex-row xl:gap-7 place-content-between'>
       <input 
-        className='p-2 rounded-2xl mt-2 lg:w-[56%] dark:bg-black bg-white border-1 dark:border-white'
+        className='p-2 rounded-2xl mt-2 md:w-[76%] dark:bg-black bg-white border-1 dark:border-white'
         type="text"
         placeholder='Enter title here'
         value={title}
@@ -65,15 +65,16 @@ const Home = () => {
         {
           pasteId ? "update Paste" : "Create Paste"
         }
+        <Toaster />
        </button>
     </div>
     <div className='mt-5'>
       <textarea 
-        className='rounded-2xl mt-4 lg:w-[500px] sm:w-[100%] p-4 dark:bg-black bg-white border-1 dark:border-white'
+        className='rounded-2xl mt-4 w-[320px] lg:w-[800px] sm:w-[500px] p-4 dark:bg-black bg-white border-1 dark:border-white'
         value={value}
         placeholder='Enter content here'
         onChange={(e) => setValue(e.target.value)}
-        rows={10}
+        rows={15}
       />
     </div>
   </div>

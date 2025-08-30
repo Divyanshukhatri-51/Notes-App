@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { removeFromPaste } from '../redux/pasteSlice';
-import toast from 'react-hot-toast';
+import { NavLink } from 'react-router-dom';
+import toast, { Toaster } from 'react-hot-toast';
 
 const Paste = () => {
 
@@ -20,46 +21,53 @@ const Paste = () => {
   return (
     <div className='sm:m-0'>
       <input 
-      className='p-2 rounded-2xl md:min-w-[600px] sm:w-[300px] mt-5 dark:bg-black bg-white border-1 border-black dark:border-white'
+      className='p-2 rounded-2xl md:min-w-[600px] w-[300px] mt-5 dark:bg-black bg-white border-1 border-black dark:border-white'
       type="search"
       placeholder='Search here'
       value={searchTerm}
       onChange={(e) => setSearchTerm(e.target.value)}
       />
-      <div className='flex flex-col gap-5, md:w-[600px] sm:w-[300px]'>
+      <div className='flex flex-col gap-5, md:w-[600px] w-[360px]'>
         {
-          filteredData.length > 0 && filteredData.map((paste) => {
+          filteredData.length > 0 ? filteredData.map((paste) => {
             return (
             <div className='border-1 border-black dark:bg-black dark:border-white bg-white mt-3 rounded-2xl'>
               <div>
-                <h1>{paste.title}</h1>
+                <h1 className='text-xl font-bold'>{paste.title}</h1>
               </div>
               <div>
-                {paste.content}
+                {paste.content.length > 150 ? paste.content.slice(1,120) + "..." :paste.content}
               </div>
               <div className='flex flex-row gap-4 place-content-evenly p-3'>
                 <button>
-                  <a href={`/?pasteId=${paste?._id}`}>
+                  <NavLink to={`/?pasteId=${paste?._id}`}>
                     Edit
-                  </a>
+                  </NavLink>
                 </button>
                 <button>
-                  <a href={`pastes/:${paste?._id}`}>
+                  <NavLink to={`/pastes/:${paste?._id}`}>
                     View
-                  </a>
+                  </NavLink>
                 </button>
                 <button onClick={() => handleDelete(paste?._id)}>
                   Delete
+                  <Toaster />
                 </button>
                 <button onClick={() => {
                   navigator.clipboard.writeText(paste?.content);
-                  toast.success('Copied to clipboard')
+                  toast.success('Copied to clipboard',
+                  {position: "top-left"})
                 }}>copy
+                <Toaster />
                 </button>
               </div>
             </div>
-            )
+            ) 
           })
+          : <div className="flex mt-3">
+            <h2 className="text-3xl mr-3">Go to Home</h2>
+            <button style={{background:"gray",color:"black"}}><NavLink to='/'>Create Note</NavLink></button>
+          </div>
         }
       </div>
     </div>

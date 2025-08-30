@@ -15,7 +15,7 @@ export const pasteSlice = createSlice({
       const paste = action.payload;
       state.pastes.push(paste);
       localStorage.setItem("pastes", JSON.stringify(state.pastes));
-      toast.success("Paste Created Successfully")
+      toast.success("Paste Created Successfully",{position: "top-left"})
     },
     updateToPaste: (state, action) => {
       const paste = action.payload;
@@ -26,7 +26,7 @@ export const pasteSlice = createSlice({
 
         localStorage.setItem("pastes", JSON.stringify(state.pastes));
         
-        toast.success("Paste Updated Successfully");
+        toast.success("Paste Updated Successfully",{position: "top-left"});
       }
     },
     resetOnPaste: (state, action) => {
@@ -41,7 +41,7 @@ export const pasteSlice = createSlice({
       if(index >= 0) {
         state.pastes.splice(index, 1);
         localStorage.setItem("pastes", JSON.stringify(state.pastes));
-        toast.success("Paste Deleted Successfully")
+        toast.success("Paste Deleted Successfully",{position: "top-left"})
       } 
       
     },
