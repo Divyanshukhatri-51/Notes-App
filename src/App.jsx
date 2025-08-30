@@ -4,7 +4,6 @@ import Navbar from './components/Navbar'
 import Home from './components/Home'
 import ViewPaste from './components/ViewPaste'
 import Paste from './components/Paste'
-import { useSelector } from 'react-redux'
 import { useState, useEffect } from 'react'
 import { BsMoonStarsFill } from "react-icons/bs";
 import { MdWbSunny } from "react-icons/md";
