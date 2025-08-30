@@ -54,7 +54,7 @@ function App() {
   }, [theme]);
 
   return (
-    <div className='static'>
+    <div className='static overflow-hidden'>
       <div className='flex w-10 mb-2 absolute right-4 p-3 rounded-full justify-between dark:bg-zinc-700 bg-gray-200'>  
         {
           theme == "dark" ?

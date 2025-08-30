@@ -36,7 +36,7 @@ const Home = () => {
     else {
       //create
       if(paste.content == "" || paste.title == ""){
-        toast.error("Title OR Content is missing", {position: 'top-left'})
+        toast.error("Title OR Content is missing", {position: 'bottom-center'})
       }
       else {
         dispatch(addToPaste(paste));
@@ -54,7 +54,7 @@ const Home = () => {
   <div className='dark:text-white text-black'>
       <div className='flex flex-row xl:gap-7 place-content-between'>
       <input 
-        className='p-2 rounded-2xl mt-2 md:w-[76%] dark:bg-black bg-white border-1 dark:border-white'
+        className='p-2 rounded-2xl mt-2 w-[70%] md:w-[76%] dark:bg-black bg-white border-1 dark:border-white'
         type="text"
         placeholder='Enter title here'
         value={title}

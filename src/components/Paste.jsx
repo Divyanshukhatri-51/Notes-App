@@ -27,7 +27,7 @@ const Paste = () => {
       value={searchTerm}
       onChange={(e) => setSearchTerm(e.target.value)}
       />
-      <div className='flex flex-col gap-5, md:w-[600px] w-[360px]'>
+      <div className='flex flex-col gap-5, md:w-[600px] w-[320px]'>
         {
           filteredData.length > 0 ? filteredData.map((paste) => {
             return (
@@ -56,7 +56,7 @@ const Paste = () => {
                 <button onClick={() => {
                   navigator.clipboard.writeText(paste?.content);
                   toast.success('Copied to clipboard',
-                  {position: "top-left"})
+                  {position: "bottom-center"})
                 }}>copy
                 <Toaster />
                 </button>
@@ -64,7 +64,7 @@ const Paste = () => {
             </div>
             ) 
           })
-          : <div className="flex mt-3">
+          : <div className="flex m-auto mt-3">
             <h2 className="text-3xl mr-3">Go to Home</h2>
             <button style={{background:"gray",color:"black"}}><NavLink to='/'>Create Note</NavLink></button>
           </div>
